@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Criptografia de mensagens</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/style.css">
+
+    <!-- Local JS -->
+    <script src="js/script.js" defer></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/190e245c5e.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1 class="title">Criptografie sua mensagem!</h1>
+        <p class="header__text">
+          <strong>Codifique/<span>decodifique</span></strong> sua mensagem com o nosso incrível sistema de criptografia.
+          Escolha entre as criptografias <a href="https://pt.wikipedia.org/wiki/Cifra_de_C%C3%A9sar" target="_blank" rel="noopener external"><strong>Cifra de César</strong></a> ou
+          <a href="https://pt.wikipedia.org/wiki/Base64" target="_blank" rel="noopener external"><strong>Base64</strong></a> para criptografar a sua mensagem!
+        </p>
+      </header>
+
+      <main class="main">
+        <section class="section">
+          <form class="form" id="form">
+            <fieldset class="form__field">
+              <label class="form__label" for="message">
+                Digite sua mensagem:
+              </label>
+              <input class="form__input" id="message" type="text" name="message" required>
+            </fieldset>
+
+            <fieldset class="form__field">
+              <label class="form__label" for="crypto">
+                Selecione um tipo de criptografia:
+              </label>
+              <select class="form__select" id="crypto" name="crypto" required>
+                <option value="caesar" selected>Cifra de César</option>
+                <option value="base64">Base64</option>
+              </select>
+            </fieldset>
+
+            <fieldset class="form__field" id="increment-field">
+              <label class="form__label" for="increment">
+                Digite o número de incremento <span>(Crifra de César)</span>:
+              </label>
+              <input class="form__input" id="increment" type="number" min="1" value="1" name="increment" required>
+            </fieldset>
+
+            <fieldset class="form__field form__field--radio">
+              <input class="form__input form__input--radio" id="encode" type="radio" name="action" value="encode" checked>
+              <label class="form__label" for="encode">
+                Codificar
+              </label>
+
+              <input class="form__input form__input--radio" id="decode" type="radio" name="action" value="decode">
+              <label class="form__label" for="decode">
+                Decodificar
+              </label>
+            </fieldset>
+
+            <button class="btn" id="form-btn" type="submit">
+              Codificar mensagem!
+            </button>
+          </form>
+          <hr>
+          <div class="section__result">
+            <h2 class="title title--small" id="msg-title">Mensagem codificada:</h2>
+            <div class="section__wrapper-message">
+              <output class="section__message" form="form">
+                A mensagem aparecerá aqui.
+              </output>
+
+              <div class="section__copy-clipboard">
+                <button id="copy-btn" type="button" title="Copiar para a área de transferência">
+                  <span class="far fa-copy"></span>
+                </button>
+                <span id="copy-info"></span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p class="footer__content">
+          <a href="https://www.linkedin.com/in/william-rodrigues-dev/" targe="_blank" rel="noreferrer noopener exernal"><strong>William Rodrigues</strong></a> &copy; 2021 - Todos os direitos reservados.
+          <br>
+          <span>Site desenvolvido para fins educacionais.</span>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

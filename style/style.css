@@ -1,0 +1,60 @@
+/*
+ * 1. General styles
+ * 2. Header
+ */
+
+
+/*
+ * 1. General styles
+ */
+
+:root {
+  --ff-roboto-mono-400: 'Roboto Mono', monospace;
+}
+
+body {
+  font-family: var(--ff-roboto-mono-400);
+}
+
+.title { font-weight: 900; }
+
+.form__field#increment-field { display: flex; }
+
+.form__field.form__field--hide#increment-field { display: none; }
+
+.section__wrapper-message {
+  position: relative;
+  display: inline-block;
+  width: 50%;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, .3);
+}
+
+.section__wrapper-message:hover { box-shadow: 0 0 3px 2px rgba(0, 0, 0, .3); }
+
+.section__copy-clipboard {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+
+#copy-info {
+  display: none; /* Changes on JS. */
+  padding: 2px;
+  font-size: 10px;
+  border: 1px dashed rgba(0, 0, 0, .3);
+  border-radius: 2px;
+}
+
+#copy-btn {
+  cursor: pointer;
+  transition: 200ms cubic-bezier(.42,0,.97,2.94);
+}
+
+#copy-btn:hover { transform: scale(1.1); }
