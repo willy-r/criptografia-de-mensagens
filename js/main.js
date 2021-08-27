@@ -7,14 +7,17 @@ const $formButton = document.getElementById('form-btn');
 const $messageTitle = document.getElementById('msg-title');
 
 const $copyButton = document.getElementById('copy-btn');
+const $messageWrapper = document.querySelector('.section__wrapper-message');
 const $message = document.querySelector('.section__message');
 const $copyInfo = document.getElementById('copy-info');
 
+const $form = document.getElementById('form');
+
 $cryptoTypeInput.addEventListener('change', () => {
   if ($cryptoTypeInput.value === 'base64')
-    $incrementField.classList.add('form__field--hide');
+    $incrementField.style.display = 'none';
   else
-    $incrementField.classList.remove('form__field--hide');
+    $incrementField.style.display = 'flex';
 });
 
 $encodeInput.addEventListener('change', () => {
@@ -37,7 +40,7 @@ $copyButton.addEventListener('click', () => {
   if (textWasSuccessfullyCopied) {
     $copyInfo.textContent = 'Copiado!';
   } else {
-    $copyInfo.textContent = 'Deu erro!';
+    $copyInfo.textContent = 'Deu erro! :(';
   }
 
   $copyInfo.style.display = 'inline-block';
@@ -56,3 +59,37 @@ function copyToClipboard(text) {
 
   return textWasCopied;
 }
+
+$form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const data = new FormData($form);
+  const userMessage = data.get('message'),
+        cryptoType = data.get('crypto'),
+        actionChosen = data.get('action');
+
+  let message;
+  
+  if (cryptoType === 'caesar') {
+    const increment = Number(data.get('increment'));
+
+    if (actionChosen === 'encode')
+      message = caesarCipherEnconder(userMessage, increment);
+    else
+      message = caesarCipherDecoder(userMessage, increment);
+  } else {
+    if (actionChosen === 'encode')
+      message = base64Encoder(userMessage);
+    else
+      message = base64Decoder(userMessage);
+  }
+
+  $message.textContent = message;
+  $message.style.display = 'block';
+  $copyButton.style.display = 'inline-block';
+  $incrementField.style.display = 'flex';
+
+  $formButton.textContent = 'Codificar mensagem!';
+  $messageTitle.textContent = 'Mensagem codificada:';
+  $form.reset();
+});

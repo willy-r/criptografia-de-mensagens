@@ -33,6 +33,8 @@ body {
 
 .section__wrapper-message:hover { box-shadow: 0 0 3px 2px rgba(0, 0, 0, .3); }
 
+.section__message { display: none; /* Changes on JS. */ }
+
 .section__copy-clipboard {
   position: absolute;
   right: 10px;
@@ -53,6 +55,7 @@ body {
 }
 
 #copy-btn {
+  display: none; /* Changes on JS. */
   cursor: pointer;
   transition: 200ms cubic-bezier(.42,0,.97,2.94);
 }
