@@ -22,14 +22,14 @@ $cryptoTypeInput.addEventListener('change', () => {
 
 $encodeInput.addEventListener('change', () => {
   if ($encodeInput.checked) {
-    $formButton.textContent = 'Codificar mensagem!';
+    $formButton.innerHTML = 'Codificar mensagem <span class="fas fa-lock"></span>';
     $messageTitle.textContent = 'Mensagem codificada:';
   }
 });
 
 $decodeInput.addEventListener('change', () => {
   if ($decodeInput.checked) {
-    $formButton.textContent = 'Decodificar mensagem!';
+    $formButton.innerHTML = 'Decodificar mensagem <span class="fas fa-lock-open"></span>';
     $messageTitle.textContent = 'Mensagem decodificada:';
   }
 });
@@ -66,30 +66,36 @@ $form.addEventListener('submit', (event) => {
   const data = new FormData($form);
   const userMessage = data.get('message'),
         cryptoType = data.get('crypto'),
-        actionChosen = data.get('action');
+        actionChosen = data.get('action'),
+        increment = Number(data.get('increment'));
 
   let message;
+  let msgColor;
   
-  if (cryptoType === 'caesar') {
-    const increment = Number(data.get('increment'));
+  if (actionChosen === 'encode') {
+    msgColor = 'var(--clr-secondary)';
 
-    if (actionChosen === 'encode')
+    if (cryptoType === 'caesar')
       message = caesarCipherEnconder(userMessage, increment);
     else
-      message = caesarCipherDecoder(userMessage, increment);
-  } else {
-    if (actionChosen === 'encode')
       message = base64Encoder(userMessage);
+  } else {
+    msgColor = 'var(--clr-primary)';
+
+    if (cryptoType === 'caesar')
+      message = caesarCipherDecoder(userMessage, increment);
     else
       message = base64Decoder(userMessage);
   }
 
   $message.textContent = message;
+  $message.style.color = msgColor;
   $message.style.display = 'block';
+  
   $copyButton.style.display = 'inline-block';
   $incrementField.style.display = 'flex';
 
-  $formButton.textContent = 'Codificar mensagem!';
+  $formButton.innerHTML = 'Codificar mensagem <span class="fas fa-lock"></span>';
   $messageTitle.textContent = 'Mensagem codificada:';
   $form.reset();
 });
