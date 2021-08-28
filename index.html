@@ -58,21 +58,21 @@
 
             <fieldset class="form__field" id="increment-field">
               <label class="form__label" for="increment">
-                Digite a chave:
+                Digite a chave <span class="fas fa-key"></span>:
               </label>
               <input class="form__input" id="increment" type="number" min="1" value="1" name="increment" required>
             </fieldset>
 
             <fieldset class="form__field form__field--radio">
               <div>
-                <input class="form__input form__input--radio" id="encode" type="radio" name="action" value="encode" checked>
+                <input class="form__input" id="encode" type="radio" name="action" value="encode" checked>
                 <label class="form__label" for="encode">
                   Codificar
                 </label>
               </div>
 
               <div>
-                <input class="form__input form__input--radio" id="decode" type="radio" name="action" value="decode">
+                <input class="form__input" id="decode" type="radio" name="action" value="decode">
                 <label class="form__label" for="decode">
                   Decodificar
                 </label>
@@ -80,7 +80,7 @@
             </fieldset>
 
             <button class="btn" id="form-btn" type="submit">
-              Codificar mensagem!
+              Codificar mensagem <span class="fas fa-lock"></span>
             </button>
           </form>
 

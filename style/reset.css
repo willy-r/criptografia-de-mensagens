@@ -52,3 +52,10 @@ select {
   border: none;
   outline: none;
 }
+
+input[type="radio"] {
+  margin: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
