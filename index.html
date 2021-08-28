@@ -26,7 +26,7 @@
   </head>
   <body>
     <div class="container">
-      <header class="header">
+      <header class="header box">
         <h1 class="title">Criptografie sua mensagem!</h1>
         <p class="header__text">
           <strong><span>Codifique</span>/<span>decodifique</span></strong> sua mensagem com o nosso incrível sistema de criptografia.
@@ -36,7 +36,7 @@
         </p>
       </header>
 
-      <main class="main">
+      <main class="main box">
         <section class="section">
           <form class="form" id="form">
             <fieldset class="form__field">
@@ -48,7 +48,7 @@
 
             <fieldset class="form__field">
               <label class="form__label" for="crypto">
-                Selecione um tipo de criptografia:
+                Selecione uma criptografia:
               </label>
               <select class="form__select" id="crypto" name="crypto" required>
                 <option value="caesar" selected>Cifra de César</option>
@@ -58,31 +58,35 @@
 
             <fieldset class="form__field" id="increment-field">
               <label class="form__label" for="increment">
-                Digite a chave <span>(Cifra de César)</span>:
+                Digite a chave:
               </label>
               <input class="form__input" id="increment" type="number" min="1" value="1" name="increment" required>
             </fieldset>
 
             <fieldset class="form__field form__field--radio">
-              <input class="form__input form__input--radio" id="encode" type="radio" name="action" value="encode" checked>
-              <label class="form__label" for="encode">
-                Codificar
-              </label>
+              <div>
+                <input class="form__input form__input--radio" id="encode" type="radio" name="action" value="encode" checked>
+                <label class="form__label" for="encode">
+                  Codificar
+                </label>
+              </div>
 
-              <input class="form__input form__input--radio" id="decode" type="radio" name="action" value="decode">
-              <label class="form__label" for="decode">
-                Decodificar
-              </label>
+              <div>
+                <input class="form__input form__input--radio" id="decode" type="radio" name="action" value="decode">
+                <label class="form__label" for="decode">
+                  Decodificar
+                </label>
+              </div>
             </fieldset>
 
             <button class="btn" id="form-btn" type="submit">
               Codificar mensagem!
             </button>
           </form>
-          <hr>
+
           <div class="section__result">
-            <h2 class="title title--small" id="msg-title">Mensagem codificada:</h2>
             <div class="section__wrapper-message">
+              <h2 class="title title--small" id="msg-title">Mensagem codificada:</h2>
               <output class="section__message" form="form">
                 A mensagem aparecerá aqui.
               </output>
