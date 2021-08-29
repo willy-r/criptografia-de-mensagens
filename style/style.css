@@ -2,6 +2,7 @@
  * 1. General styles
  * 2. Header
  * 3. Main
+ * 4. Footer
  */
 
 
@@ -57,7 +58,7 @@ html {
 body {
   font-family: var(--ff-roboto-mono-400);
   color: var(--clr-black);
-  background: var(--clr-primary) url(../images/f4gokvsyrh.jpg) center/cover no-repeat;
+  background: var(--clr-primary) url(../images/f4gokvsyrh.jpg) center/cover fixed no-repeat;
 }
 
 strong { font-weight: 700; }
@@ -72,7 +73,7 @@ strong { font-weight: 700; }
 
 .box {
   padding: 2.5%;
-  margin-bottom: 5%;
+  margin-bottom: 4%;
   background-color: var(--clr-white-second);
   border-top-left-radius: .9rem;
   border-bottom-right-radius: .9rem;
@@ -80,6 +81,8 @@ strong { font-weight: 700; }
     0 0 3px 2px var(--clr-black),
     0 0 4px 2px var(--clr-white);
 }
+
+.box:last-child { margin-bottom: 0; }
 
 .title {
   font-size: 1.875rem; /* 30px */
@@ -174,7 +177,12 @@ strong { font-weight: 700; }
  * 3. Main
  */
 
-.main { width: 100%; }
+.main {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 21.5rem;
+}
 
 .section {
   display: flex;
@@ -321,3 +329,20 @@ strong { font-weight: 700; }
 }
 
 #copy-btn:hover { transform: scale(1.1); }
+
+
+/*
+ * 4. Footer
+ */
+
+.footer { text-align: center; }
+
+.footer__content { line-height: 1.2em; }
+
+.footer__content > a {
+  color: var(--clr-black-second);
+  transition: 250ms;
+}
+
+.footer__content > a:hover,
+.footer__content > a:focus { color: var(--clr-secondary); }
