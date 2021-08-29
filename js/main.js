@@ -14,10 +14,13 @@ const $copyInfo = document.getElementById('copy-info');
 const $form = document.getElementById('form');
 
 $cryptoTypeInput.addEventListener('change', () => {
-  if ($cryptoTypeInput.value === 'base64')
-    $incrementField.style.display = 'none';
-  else
+  if ($cryptoTypeInput.value === 'base64') {
+    $incrementField.style.animation = 'fade-out 250ms ease-out';
+    setTimeout(() => $incrementField.style.display = 'none', 250);
+  } else {
     $incrementField.style.display = 'flex';
+    $incrementField.style.animation = 'fade-in 250ms ease-in';
+  }
 });
 
 $encodeInput.addEventListener('change', () => {
@@ -91,9 +94,12 @@ $form.addEventListener('submit', (event) => {
   $message.textContent = message;
   $message.style.color = msgColor;
   $message.style.display = 'block';
+  $message.style.animation = 'fade-in 250ms ease-in';
+  setTimeout(() => $message.style.animation = 'none', 250);
   
   $copyButton.style.display = 'inline-block';
   $incrementField.style.display = 'flex';
+  $incrementField.style.animation = 'fade-in 250ms ease-in';
 
   $formButton.innerHTML = 'Codificar mensagem <span class="fas fa-lock"></span>';
   $messageTitle.textContent = 'Mensagem codificada:';

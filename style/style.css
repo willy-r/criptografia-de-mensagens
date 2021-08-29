@@ -120,6 +120,15 @@ strong { font-weight: 700; }
   box-shadow: inset 16.5em 0 0 0 var(--clr-tertiary);
 }
 
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fade-out {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
 
 /*
  * 2. Header
@@ -171,7 +180,6 @@ strong { font-weight: 700; }
   display: flex;
   align-items: center;
   justify-content: space-around;
-  flex-wrap: wrap;
   width: 100%;
   gap: 1vw;
 }
