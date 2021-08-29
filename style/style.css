@@ -23,7 +23,6 @@
   
   --bs-scrollbar: inset 0 0 6px rgba(0, 0, 0, .3);
   --bd-input: #e44821;
-  --bs-title: 0 0 3px rgba(0, 0, 0, .3);
 }
 
 ::-webkit-scrollbar-track {
@@ -101,7 +100,7 @@ strong { font-weight: 700; }
   text-align: left;
   background-color: var(--clr-white);
   border-radius: .1875rem;
-  box-shadow: var(--bs-title);
+  box-shadow: 0 0 3px rgba(0, 0, 0, .3);
 }
 
 .btn {
@@ -252,31 +251,29 @@ strong { font-weight: 700; }
 
 .form__input[type="radio"] + label { cursor: pointer; }
 
-
-
-
-
-
-
-.section__result { width: 40%; }
+.section__result { width: 45%; }
 
 .section__wrapper-message {
   position: relative;
-  display: inline-block;
   width: 100%;
-  height: 173px;
-  padding: 20px;
-  border-radius: 10px;
+  height: 12.5rem; /* To force scroll when the message is very large. */
+  padding: 5%;
+  border-radius: .625rem;
   box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, .3);
 }
 
 .section__wrapper-message:hover { box-shadow: 0 0 3px 2px rgba(0, 0, 0, .3); }
 
+.section__wrapper-message:hover #copy-btn { opacity: 1; }
+
 .section__message {
   display: none; /* Changes on JS. */
-  font-weight: 700;
+  padding: .125rem;
   height: 100%;
-  overflow-y: scroll;
+  font-size: .9375rem; /* 15px */
+  font-weight: 700;
+  line-height: 1.2em;
+  overflow-y: auto;
 
   /* Scrollbar compatibility for Firefox/Safari/Chrome */
   scrollbar-width: thin;
@@ -285,27 +282,34 @@ strong { font-weight: 700; }
 
 .section__copy-clipboard {
   position: absolute;
-  right: 10px;
-  top: 10px;
+  right: .625rem;
+  top: -.75rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3px;
+  gap: .1875rem;
 }
 
 #copy-info {
   display: none; /* Changes on JS. */
-  padding: 2px;
-  font-size: 10px;
-  border: 1px dashed rgba(0, 0, 0, .3);
-  border-radius: 2px;
+  padding: .2em;
+  font-size: .625rem; /* 10px */
+  border: .2em solid rgba(0, 0, 0, .3);
+  background-color: var(--clr-white);
+  border-radius: .5em;
 }
 
 #copy-btn {
   display: none; /* Changes on JS. */
+  padding-left: .3125em;
+  padding-right: .3125em;
+  font-size: 1rem; /* 16px */
+  border-radius: .3125em;
+  opacity: .6;
   cursor: pointer;
-  transition: 200ms cubic-bezier(.42,0,.97,2.94);
+  transition: 
+    transform 200ms cubic-bezier(.42,0,.97,2.94),
+    opacity 200ms;
 }
 
 #copy-btn:hover { transform: scale(1.1); }
