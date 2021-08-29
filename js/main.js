@@ -13,6 +13,14 @@ const $copyInfo = document.getElementById('copy-info');
 
 const $form = document.getElementById('form');
 
+addCurrentYearToFooter();
+
+function addCurrentYearToFooter() {
+  const $yearPlaceholder = document.getElementById('year');
+    
+  $yearPlaceholder.textContent = new Date().getFullYear();
+}
+
 $cryptoTypeInput.addEventListener('change', () => {
   if ($cryptoTypeInput.value === 'base64') {
     $incrementField.style.animation = 'fade-out 250ms ease-out';
