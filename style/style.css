@@ -338,10 +338,7 @@ strong { font-weight: 700; }
 
 .footer { text-align: center; }
 
-.footer__content {
-  font-size: .9375rem; /* 15px */
-  line-height: 1.25em;
-}
+.footer__content { line-height: 1.25em; }
 
 .footer__content > a {
   color: var(--clr-black-second);

@@ -1,3 +1,10 @@
+/**
+ * Encodes normal text to Caesar Cipher.
+ * 
+ * @param {string} normalText The text to encode.
+ * @param {number} key The key to encode the text (default = 1).
+ * @returns {string} The encoded text.
+ */
 function caesarCipherEnconder(normalText, key=1) {
   normalText = normalText.split('');
   let encodedText = '';
@@ -16,6 +23,13 @@ function caesarCipherEnconder(normalText, key=1) {
   return encodedText;
 }
 
+/**
+ * Decodes enconded text in Caesar Cipher to normal text.
+ * 
+ * @param {string} encodedText The encoded text to decode.
+ * @param {number} key The key to decode the text (default = 1).
+ * @returns {string} The decoded text.
+ */
 function caesarCipherDecoder(encodedText, key=1) {
   encodedText = encodedText.split('');
   let normalText = '';
