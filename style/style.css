@@ -58,7 +58,7 @@ html {
 body {
   font-family: var(--ff-roboto-mono-400);
   color: var(--clr-black);
-  background: var(--clr-primary) url(../images/f4gokvsyrh.jpg) center/cover fixed no-repeat;
+  background: var(--clr-primary) url(../images/f4gokvsyrh.jpg) center/cover no-repeat;
 }
 
 strong { font-weight: 700; }
