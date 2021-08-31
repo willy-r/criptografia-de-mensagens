@@ -336,7 +336,10 @@ strong { font-weight: 700; }
  * 4. Footer
  */
 
-.footer { text-align: center; }
+.footer {
+  position: relative;
+  text-align: center;
+}
 
 .footer__content { line-height: 1.25em; }
 
